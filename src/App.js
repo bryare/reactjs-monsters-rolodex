@@ -9,8 +9,6 @@ const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
-  console.log("render");
-
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
@@ -23,8 +21,6 @@ const App = () => {
     });
 
     setFilteredMonsters(newFilteredMonsters);
-
-    console.log("effect is firing");
   }, [monsters, searchField]);
   // useEffect(() => {
   //   const newFilteredMonsters = monsters.filter((monster) => {
@@ -37,8 +33,6 @@ const App = () => {
     const searchFieldString = event.target.value.toLocaleLowerCase();
     setSearchField(searchFieldString);
   };
-
-  console.log(filteredMonsters);
 
   return (
     <div className="App">
